@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fraud Detection - Dashboard</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>📊 Dashboard</h1>
+            <div class="user-info">
+                <span id="userEmail">Loading...</span>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <div class="balance-card">
+                <h2>💰 Account Balance</h2>
+                <div class="balance-amount" id="accountBalance">₹ 50,000</div>
+            </div>
+
+            <div class="charts-section">
+                <div class="chart-container">
+                    <h3>🛡️ Transaction Safety Overview</h3>
+                    <canvas id="safetyChart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <h3>📈 Recent Transactions</h3>
+                    <canvas id="transactionChart"></canvas>
+                </div>
+            </div>
+
+            <div class="transaction-section">
+                <button class="new-transaction-btn" onclick="showTransactionForm()">
+                    ➕ New Transaction
+                </button>
+
+                <div id="transactionForm" class="transaction-form" style="display: none;">
+                    <h3>💳 Make New Transaction</h3>
+                    <form id="newTransactionForm">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="cardUsed">Card Used:</label>
+                                <select id="cardUsed" required>
+                                    <option value="">Select Card</option>
+                                    <option value="main">Main Card (****1234)</option>
+                                    <option value="secondary">Secondary Card (****5678)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="amount">Amount (₹):</label>
+                                <input type="number" id="amount" min="1" placeholder="1000" required>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="location">Location:</label>
+                            <input type="text" id="location" placeholder="Mumbai, India" required>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="submit" class="submit-btn">Process Transaction</button>
+                            <button type="button" onclick="hideTransactionForm()" class="cancel-btn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="recent-transactions">
+                <h3>📋 Recent Transactions</h3>
+                <div id="transactionHistory" class="transaction-list">
+                    <!-- Transactions will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fraud Alert Modal -->
+    <div id="fraudAlert" class="modal">
+        <div class="modal-content fraud-alert">
+            <h2>⚠️ Fraud Alert!</h2>
+            <p id="fraudMessage">This transaction may be fraudulent based on our AI analysis.</p>
+            <div class="fraud-actions">
+                <button onclick="callBank()" class="action-btn danger">📞 Call Bank</button>
+                <button onclick="blockCard()" class="action-btn danger">🔒 Block Card</button>
+                <button onclick="continueTransaction()" class="action-btn success">✅ Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/dashboard.js"></script>
+    <script src="../scripts/fraudDetection.js"></script>
+</body>
+</html>

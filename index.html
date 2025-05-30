@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fraud Detection - Login</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1>🔐 AI Fraud Detection System</h1>
+            <p class="subtitle">Secure Banking Made Simple</p>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" id="cardNumber" maxlength="16" placeholder="1234567890123456" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="mobile">Mobile Number:</label>
+                    <input type="text" id="mobile" maxlength="10" placeholder="9876543210" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="user@example.com" required>
+                </div>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" maxlength="3" placeholder="123" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="expiry">Expiry Date:</label>
+                        <input type="month" id="expiry" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            
+            <div class="info-buttons">
+                <button type="button" class="info-btn" onclick="showAboutApp()">About App</button>
+                <button type="button" class="info-btn" onclick="showFraudInfo()">Fraud Info</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for About App -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('aboutModal')">&times;</span>
+            <h2>🔍 About This App</h2>
+            <p>This is a simple AI-based fraud detection system designed to help protect your financial transactions.</p>
+            <p><strong>Features:</strong></p>
+            <ul>
+                <li>Real-time transaction monitoring</li>
+                <li>Smart fraud detection algorithms</li>
+                <li>Secure login system</li>
+                <li>Transaction history tracking</li>
+                <li>Interactive dashboard with charts</li>
+            </ul>
+            <p><em>Built by Computer Science Students - Semester 4 Project</em></p>
+        </div>
+    </div>
+
+    <!-- Modal for Fraud Info -->
+    <div id="fraudModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('fraudModal')">&times;</span>
+            <h2>⚠️ What is Fraud?</h2>
+            <p>Financial fraud occurs when someone uses your card or account without permission.</p>
+            <p><strong>How Our Detection Works:</strong></p>
+            <ul>
+                <li>Monitors unusual spending patterns</li>
+                <li>Checks for transactions in new locations</li>
+                <li>Detects unusually large amounts</li>
+                <li>Analyzes transaction timing</li>
+            </ul>
+            <p><strong>Red Flags:</strong></p>
+            <ul>
+                <li>Transactions much larger than usual</li>
+                <li>Multiple transactions in short time</li>
+                <li>Purchases in unfamiliar locations</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="src/scripts/auth.js"></script>
+</body>
+</html>
